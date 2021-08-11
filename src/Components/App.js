@@ -1,9 +1,13 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
 
 
 
 class App extends Component {
-
+	render() {
+		return (
+			
+			)
+	}
 }
 
 export default App;
