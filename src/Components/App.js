@@ -35,11 +35,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <main>
-                    <section className="jumbotron">
-                        <div className="container d-flex flex-column align-items-center">
-                            <h1 className="jumbotron-heading">Welcome!</h1>
-                            <p className="lead text-muted">To get started, add some items to your list:</p>
+                <main className="main">
+                    <section className="">
+                        <div className="take-note">
                             <FormAddTodo add={this.addTodo.bind(this)} />
                         </div>
                     </section>

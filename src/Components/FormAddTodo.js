@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './FormAddTodo.css'
 
 function FormAddTodo(props) {
 
@@ -16,9 +16,9 @@ function FormAddTodo(props) {
 
 
     return (
-        <form className="form-inline" onSubmit={formHandler}>
+        <form className="form" onSubmit={formHandler}>
             <div className="form-group">
-                <input type="text" className="form-control mx-sm-3" placeholder="i want to do ..." value={text} onChange={inputHandler}/>
+                <input type="text" className="note-input" placeholder="Take a Note ..." value={text} onChange={inputHandler}/>
                 <button type="submit" className="btn btn-primary">add</button>
             </div>
         </form>

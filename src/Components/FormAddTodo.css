@@ -1,0 +1,23 @@
+.form {
+    width: 100%;
+    margin-top: 8%;
+}
+
+.take-note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type=text].note-input  {
+    width: 100%;
+    padding: 17px 16px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0px 3px 0.5px #d3d3d36b
+}
+.note-input::placeholder {
+    color: #393939;
+    font-weight: 600;
+}
