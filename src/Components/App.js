@@ -28,7 +28,13 @@ class App extends Component {
         })
 	}
 
-
+    deleteNote(key) {
+	    this.setState(prevState => {
+	        return {
+	            todos : prevState.todos.filter( item => item.key !== key )
+            }
+        })
+    }
 
 
 
@@ -51,7 +57,7 @@ class App extends Component {
                                     {
                                         todos.length === 0
                                             ? <p>There isn't any notes</p>
-                                            : todos.map(item => <Note key={item.key} text={item.text} />)
+                                            : todos.map(item => <Note key={item.key} item={item} delete={this.deleteNote.bind(this)} />)
                                     }
 
                                 </div>
