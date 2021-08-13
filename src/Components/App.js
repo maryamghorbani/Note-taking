@@ -36,6 +36,21 @@ class App extends Component {
         })
     }
 
+    editNote(key , text) {
+	    let { todos } = this.state;
+	    let item = todos.find(item => item.key === key);
+	    item.text = text;
+
+	    let newNote = todos.filter(item => item.key !== key)
+
+        this.setState({
+            todos : [
+                ... newNote,
+                item
+            ]
+        })
+    }
+
 
 
     render() {
@@ -55,7 +70,13 @@ class App extends Component {
                         {
                             todos.length === 0
                                 ? <p>There isn't any notes</p>
-                                : todos.map(item => <Note key={item.key} item={item} delete={this.deleteNote.bind(this)} />)
+                                : todos.map(item => <Note
+                                                        key={item.key}
+                                                        item={item}
+                                                        delete={this.deleteNote.bind(this)}
+                                                        edit={this.editNote.bind(this)}
+                                                    />
+                                                    )
                         }
                     </div>
                 </main>
