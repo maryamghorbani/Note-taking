@@ -17,7 +17,7 @@ class App extends Component {
 	}
 
 
-	addTodo(text) {
+	addNote(text) {
 		this.setState(prevState => {
             return {
                 todos : [
@@ -27,6 +27,10 @@ class App extends Component {
             }
         })
 	}
+
+
+
+
 
     render() {
 	    
@@ -38,7 +42,7 @@ class App extends Component {
                 <main className="main">
                     <section className="">
                         <div className="take-note">
-                            <FormAddTodo add={this.addTodo.bind(this)} />
+                            <FormAddTodo add={this.addNote.bind(this)} />
                         </div>
                     </section>
                     <div className="todosList">
