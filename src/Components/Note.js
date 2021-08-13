@@ -6,7 +6,6 @@ function Note(props) {
 
     return (
         <div className="Note">
-            <div className="">
                 <div>
                     {props.text}
                 </div>
@@ -14,7 +13,6 @@ function Note(props) {
                     <button type="button" className="btn btn-info btn-sm">edit</button>
                     <button type="button" className="btn btn-danger btn-sm ml-1">delete</button>
                 </div>
-            </div>
         </div>
     )
 }

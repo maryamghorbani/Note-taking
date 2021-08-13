@@ -13,7 +13,7 @@ input[type=text].note-input  {
     padding: 17px 16px;
     margin: 8px 0;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 4px;
     box-sizing: border-box;
     box-shadow: 0 0px 3px 0.5px #d3d3d36b
 }
