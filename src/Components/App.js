@@ -51,18 +51,12 @@ class App extends Component {
                             <FormAddTodo add={this.addNote.bind(this)} />
                         </div>
                     </section>
-                    <div className="todosList">
-                            <div className="container">
-                                <div className="d-flex flex-column align-items-center ">
-                                    {
-                                        todos.length === 0
-                                            ? <p>There isn't any notes</p>
-                                            : todos.map(item => <Note key={item.key} item={item} delete={this.deleteNote.bind(this)} />)
-                                    }
-
-                                </div>
-                        
-                            </div>
+                    <div className="Notes">
+                        {
+                            todos.length === 0
+                                ? <p>There isn't any notes</p>
+                                : todos.map(item => <Note key={item.key} item={item} delete={this.deleteNote.bind(this)} />)
+                        }
                     </div>
                 </main>
             </div>
