@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Note.css';
+import EditNote from "./EditNote";
 
 
 function Note(props) {
 
+    const {item} = props;
+
+    const [edit , setEdit] = useState(false);
+
     return (
-        <div className="Note">
-                <div>
-                    {props.text}
-                </div>
-                <div>
-                    <button type="button" className="btn btn-info btn-sm">edit</button>
-                    <button type="button" className="btn btn-danger btn-sm ml-1">delete</button>
-                </div>
-        </div>
+        <>
+            {
+                edit === false
+                    ? (
+                        <div className="Note">
+                            <div>
+                                {item.text}
+                            </div>
+                            <div>
+                                <button type="button" className="" onClick={() => setEdit(true)}>edit</button>
+                                <button type="button" className="" onClick={() => props.delete(props.item.key)}>delete</button>
+                            </div>
+                        </div>
+                    )
+                    : <EditNote text = {item.text} />
+            }
+        </>
     )
 }
 
