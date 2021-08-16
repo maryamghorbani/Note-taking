@@ -17,9 +17,9 @@ function FormAddTodo(props) {
 
     return (
         <form className="form" onSubmit={formHandler}>
-            <div className="form-group">
+            <div className="">
                 <input type="text" className="note-input" placeholder="Take a Note ..." value={text} onChange={inputHandler}/>
-                <button type="submit" className="btn btn-primary">add</button>
+                <button type="submit" className="">add</button>
             </div>
         </form>
     )

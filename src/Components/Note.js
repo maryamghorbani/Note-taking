@@ -13,10 +13,17 @@ function Note(props) {
         <>
             {
                 edit === false
+<<<<<<< HEAD
                     ? (
                         <div className="Note">
                             <div>
                                 {item.text}
+=======
+                    ?(
+                        <div className="Note">
+                            <div>
+                                {props.item.text}
+>>>>>>> master
                             </div>
                             <div>
                                 <button type="button" className="" onClick={() => setEdit(true)}>edit</button>
@@ -24,7 +31,11 @@ function Note(props) {
                             </div>
                         </div>
                     )
+<<<<<<< HEAD
                     : <EditNote text = {item.text} />
+=======
+                    : <EditNote />
+>>>>>>> master
             }
         </>
     )

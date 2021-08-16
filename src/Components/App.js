@@ -17,7 +17,7 @@ class App extends Component {
 	}
 
 
-	addTodo(text) {
+	addNote(text) {
 		this.setState(prevState => {
             return {
                 todos : [
@@ -29,13 +29,20 @@ class App extends Component {
 	}
 
     deleteNote(key) {
+<<<<<<< HEAD
         this.setState(prevState => {
             return {
                 todos : prevState.todos.filter( item => item.key !== key )
+=======
+	    this.setState(prevState => {
+	        return {
+	            todos : prevState.todos.filter( item => item.key !== key )
+>>>>>>> master
             }
         })
     }
 
+<<<<<<< HEAD
 
 
     editNote(key , text) {
@@ -44,6 +51,14 @@ class App extends Component {
         item.text = text;
 
         let newNote = todos.filter(item => item.key !== key)
+=======
+    editNote(key , text) {
+	    let { todos } = this.state;
+	    let item = todos.find(item => item.key === key);
+	    item.text = text;
+
+	    let newNote = todos.filter(item => item.key !== key)
+>>>>>>> master
 
         this.setState({
             todos : [
@@ -54,6 +69,10 @@ class App extends Component {
     }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     render() {
 	    
 	    let {todos} = this.state;
@@ -64,9 +83,10 @@ class App extends Component {
                 <main className="main">
                     <section className="">
                         <div className="take-note">
-                            <FormAddTodo add={this.addTodo.bind(this)} />
+                            <FormAddTodo add={this.addNote.bind(this)} />
                         </div>
                     </section>
+<<<<<<< HEAD
                     <div className="todosList">
                             <div className="container">
                                 <div className="d-flex flex-column align-items-center ">
@@ -85,6 +105,20 @@ class App extends Component {
                                 </div>
                         
                             </div>
+=======
+                    <div className="Notes">
+                        {
+                            todos.length === 0
+                                ? <p>There isn't any notes</p>
+                                : todos.map(item => <Note
+                                                        key={item.key}
+                                                        item={item}
+                                                        delete={this.deleteNote.bind(this)}
+                                                        edit={this.editNote.bind(this)}
+                                                    />
+                                                    )
+                        }
+>>>>>>> master
                     </div>
                 </main>
             </div>
