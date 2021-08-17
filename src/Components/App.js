@@ -14,15 +14,15 @@ import Note from "./Note/Note";
 class App extends Component {
 
     state = {
-        todos : []
+        notes : []
     }
 
 
     addNote(text) {
         this.setState(prevState => {
             return {
-                todos : [
-                    ... prevState.todos,
+                notes : [
+                    ... prevState.notes,
                     { key : Date.now() , done : false , text }
                 ]
             }
@@ -32,20 +32,20 @@ class App extends Component {
     deleteNote(key) {
         this.setState(prevState => {
             return {
-                todos : prevState.todos.filter( item => item.key !== key )
+                notes : prevState.notes.filter( item => item.key !== key )
             }
         })
     }
     editNote(key , text) {
-        let { todos } = this.state;
-        let item = todos.find(item => item.key === key);
+        let { notes } = this.state;
+        let item = notes.find(item => item.key === key);
         item.text = text;
 
-        let newNote = todos.filter(item => item.key !== key)
+        let newNote = notes.filter(item => item.key !== key)
 
 
         this.setState({
-            todos : [
+            notes : [
                 ... newNote,
                 item
             ]
@@ -54,7 +54,7 @@ class App extends Component {
 
     render() {
 
-        let {todos} = this.state;
+        let {notes} = this.state;
 
         return (
             <div className="App">
@@ -66,7 +66,7 @@ class App extends Component {
                         </div>
                     </section>
                     <NoteList
-                        todos={this.state.todos}
+                        notes={this.state.notes}
                         delete={this.deleteNote.bind(this)}
                         edit={this.editNote.bind(this)}
                     />
