@@ -1,8 +1,13 @@
-import React from 'react';
+import React , { useContext } from 'react';
 import Note from "./Note";
+import NotesContext from "../../Context/Notes";
 
 function NoteList(props) {
-    let { notes } = props;
+
+    const noteContext = useContext(NotesContext);
+
+    let { notes } = noteContext;
+
     return (
         <div className="Notes">
             {
@@ -11,8 +16,6 @@ function NoteList(props) {
                     : notes.map(item => <Note
                         key={item.key}
                         item={item}
-                        delete={props.delete}
-                        edit={props.edit}
                     />
                     )
             }

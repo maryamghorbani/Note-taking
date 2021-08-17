@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import './CSS/FormAddTodo.css'
+import NotesContext from "../../Context/Notes";
 
 function FormAddNote(props) {
 
 
     const [ text , setText ] = useState('');
+    const noteContext = useContext(NotesContext);
 
 
     let formHandler = e => {
         e.preventDefault();
-        props.add(text);
+        noteContext.add(text);
         setText('');
     }
     let inputHandler = e => setText(e.target.value)
