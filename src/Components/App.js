@@ -6,7 +6,11 @@ import './App.css';
 import Header from './Layout/Header';
 import FormAddNote from './Note/FormAddNote';
 import NoteList from "./Note/NoteList";
-import Note from "./Note/Note";
+
+
+
+// Import Contexts
+import NotesContext from "../Context/Notes";
 
 
 
@@ -57,21 +61,24 @@ class App extends Component {
         let {notes} = this.state;
 
         return (
-            <div className="App">
-                <Header />
-                <main className="main">
-                    <section className="">
-                        <div className="take-note">
-                            <FormAddNote add={this.addNote.bind(this)} />
-                        </div>
-                    </section>
-                    <NoteList
-                        notes={this.state.notes}
-                        delete={this.deleteNote.bind(this)}
-                        edit={this.editNote.bind(this)}
-                    />
-                </main>
-            </div>
+            <NotesContext.Provider value={{
+                notes: this.state.notes,
+                add: this.addNote.bind(this),
+                edit: this.editNote.bind(this),
+                delete: this.deleteNote.bind(this)
+            }}>
+                <div className="App">
+                    <Header />
+                    <main className="main">
+                        <section className="">
+                            <div className="take-note">
+                                <FormAddNote />
+                            </div>
+                        </section>
+                        <NoteList />
+                    </main>
+                </div>
+            </NotesContext.Provider>
     )
     }
     }
