@@ -20,8 +20,5 @@ function EditNote(props) {
     )
 }
 
-<<<<<<< HEAD
 export default EditNote;
-=======
-export default EditNote;
->>>>>>> master
+
