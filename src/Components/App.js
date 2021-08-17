@@ -5,7 +5,8 @@ import './App.css';
 // Import Components
 import Header from './Layout/Header';
 import FormAddNote from './Note/FormAddNote';
-import Note from './Note/Note';
+import NoteList from "./Note/NoteList";
+import Note from "./Note/Note";
 
 
 
@@ -64,21 +65,11 @@ class App extends Component {
                             <FormAddNote add={this.addNote.bind(this)} />
                         </div>
                     </section>
-                    <div className="NotesList">
-                        <div className="Notes">
-                            {
-                                todos.length === 0
-                                    ? <p>There isn't any notes</p>
-                                    : todos.map(item => <Note
-                                        key={item.key}
-                                        item={item}
-                                        delete={this.deleteNote.bind(this)}
-                                        edit={this.editNote.bind(this)}
-                                    />
-                                    )
-                            }
-                        </div>
-                    </div>
+                    <NoteList
+                        todos={this.state.todos}
+                        delete={this.deleteNote.bind(this)}
+                        edit={this.editNote.bind(this)}
+                    />
                 </main>
             </div>
     )
