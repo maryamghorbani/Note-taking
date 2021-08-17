@@ -3,9 +3,9 @@ import './App.css';
 
 
 // Import Components
-import Header from './Header';
-import FormAddTodo from './FormAddTodo';
-import Note from './Note';
+import Header from './Layout/Header';
+import FormAddNote from './Note/FormAddNote';
+import Note from './Note/Note';
 
 
 
@@ -61,7 +61,7 @@ class App extends Component {
                 <main className="main">
                     <section className="">
                         <div className="take-note">
-                            <FormAddTodo add={this.addNote.bind(this)} />
+                            <FormAddNote add={this.addNote.bind(this)} />
                         </div>
                     </section>
                     <div className="NotesList">

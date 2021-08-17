@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './FormAddTodo.css'
+import './CSS/FormAddTodo.css'
 
-function FormAddTodo(props) {
+function FormAddNote(props) {
 
 
     const [ text , setText ] = useState('');
@@ -25,4 +25,4 @@ function FormAddTodo(props) {
     )
 }
 
-export default FormAddTodo;
+export default FormAddNote;

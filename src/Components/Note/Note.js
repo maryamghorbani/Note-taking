@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Note.css';
+import './CSS/Note.css';
 import EditNote from "./EditNote";
 
 
