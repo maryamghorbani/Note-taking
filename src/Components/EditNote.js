@@ -14,7 +14,7 @@ function EditNote(props) {
                 <input value={text} onChange={inputHandler} />
             </div>
             <div>
-                <button type="button" className="">edit</button>
+                <button type="button" className="" onClick={()=> props.edit(text)}>edit</button>
             </div>
         </div>
     )

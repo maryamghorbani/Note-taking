@@ -9,10 +9,15 @@ function Note(props) {
 
     const [edit , setEdit] = useState(false);
 
+    let editHandler = text => {
+        props.edit(item.key , text);
+        setEdit(false);
+    }
+
     return (
         <>
             {
-                edit === false
+                ! edit
                     ? (
                         <div className="Note">
                             <div>
@@ -24,7 +29,7 @@ function Note(props) {
                             </div>
                         </div>
                     )
-                    : <EditNote text = {item.text} />
+                    : <EditNote text = {item.text} edit={editHandler} />
             }
         </>
     )
