@@ -2,12 +2,12 @@ function AppReducer(state , action) {
     console.log(state , action);
     switch (action.type) {
         case 'init_note':
-            let { todos } = action.payload;
+            let { notes } = action.payload;
             return  {
                 ...state,
-                todos
+                notes
             }
-        case 'add_todo':
+        case 'add_note':
             return addNote(state , action);
         case 'delete_note' :
             return deleteNote(state,action);

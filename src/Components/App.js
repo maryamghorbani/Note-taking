@@ -38,7 +38,7 @@ function App() {
                 }
             });
 
-        dispatch({ type : 'init_todo' , payload : { notes }})
+        dispatch({ type : 'init_note' , payload : { notes }})
     }
 
 
