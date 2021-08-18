@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 axios.defaults.baseURL = 'https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app'
+axios.defaults.timeout = 5000;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
