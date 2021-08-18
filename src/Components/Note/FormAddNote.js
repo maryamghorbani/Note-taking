@@ -12,7 +12,7 @@ class FormAddNote extends React.Component {
         e.preventDefault();
         // ajax
         let note = { text : this.state.text };
-        axios.post(`https://react-course-d7c8c.firebaseio.com/notes.json` , note)
+        axios.post(`https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app/notes.json` , note)
             .then(response => this.context.dispatch({ type : 'add_Note' , payload : { note : { ...note , key : response.data.name } } }))
             .catch(err => console.log(err))
         //
