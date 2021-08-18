@@ -2,3 +2,6 @@
     background-color: #ccc;
     padding: 1% 8%;
 }
+.login-btn , .logout-btn {
+    float: right;
+}
