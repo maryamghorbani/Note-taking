@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import './CSS/FormAddTodo.css'
 import NotesContext from "../../Context/Notes";
+import axios from "axios";
 
 function FormAddNote(props) {
 
@@ -11,7 +12,11 @@ function FormAddNote(props) {
 
     let formHandler = e => {
         e.preventDefault();
-        noteContext.add(text);
+        //ajax
+        let note = { text: text };
+        axios.post(`https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app/notes.json` , note )
+            .then( response => noteContext.add(text) )
+            .catch( err => console.log(err))
         setText('');
     }
     let inputHandler = e => setText(e.target.value)
