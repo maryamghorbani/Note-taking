@@ -2,6 +2,7 @@ import React, { useState , useContext } from 'react';
 import './CSS/Note.css';
 import EditNote from "./EditNote";
 import NotesContext from "../../Context/Notes";
+import axios from "axios";
 
 
 function Note(props) {
@@ -17,7 +18,11 @@ function Note(props) {
     }
     let deleteHandler = e => {
         // ajax
-        noteContext.dispatch({ type : 'delete_note' , payload : { key : item.key}})
+        axios.delete(`https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app/notes/${item.key}.json`)
+            .then( response => {
+                noteContext.dispatch({ type : 'delete_note' , payload : { key : item.key}})
+            })
+            .catch( err => console.log(err) )
     }
 
     return (
