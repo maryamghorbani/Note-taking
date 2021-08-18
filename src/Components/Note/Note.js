@@ -6,15 +6,18 @@ import NotesContext from "../../Context/Notes";
 
 function Note(props) {
 
-    const noteContext = useContext(NotesContext);
 
     const {item} = props;
-
     const [edit , setEdit] = useState(false);
+    const noteContext = useContext(NotesContext);
 
     let editHandler = text => {
-        noteContext.edit(item.key , text);
+        noteContext.dispatch({ type : 'edit_note' , payload : { key : item.key , text }})
         setEdit(false);
+    }
+    let deleteHandler = e => {
+        // ajax
+        noteContext.dispatch({ type : 'delete_note' , payload : { key : item.key}})
     }
 
     return (
@@ -28,7 +31,7 @@ function Note(props) {
                             </div>
                             <div>
                                 <button type="button" className="" onClick={() => setEdit(true)}>edit</button>
-                                <button type="button" className="" onClick={() => noteContext.delete(props.item.key)}>delete</button>
+                                <button type="button" className="" onClick={deleteHandler}>delete</button>
                             </div>
                         </div>
                     )
