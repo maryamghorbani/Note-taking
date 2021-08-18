@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Components/App';
 import reportWebVitals from './reportWebVitals';
+import axios from "axios";
+
+
+axios.defaults.baseURL = 'https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

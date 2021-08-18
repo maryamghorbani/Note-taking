@@ -13,7 +13,7 @@ function Note(props) {
     const noteContext = useContext(NotesContext);
 
     let editHandler = text => {
-        axios.put(`https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app/notes/${item.key}.json`, { text })
+        axios.put(`/notes/${item.key}.json`, { text })
             .then( response => {
                 noteContext.dispatch({ type : 'edit_note' , payload : { key : item.key , text }})
             })
@@ -22,7 +22,7 @@ function Note(props) {
     }
     let deleteHandler = e => {
         // ajax
-        axios.delete(`https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app/notes/${item.key}.json`)
+        axios.delete(`/notes/${item.key}.json`)
             .then( response => {
                 noteContext.dispatch({ type : 'delete_note' , payload : { key : item.key}})
             })

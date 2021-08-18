@@ -23,7 +23,7 @@ function App() {
     })
 
     useEffect(() => {
-        axios.get(`https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app/notes.json`)
+        axios.get(`/notes.json`)
             .then(response => jsonHandler(response.data))
             .catch(err => console.log(err));
     },[])
