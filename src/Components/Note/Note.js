@@ -13,7 +13,11 @@ function Note(props) {
     const noteContext = useContext(NotesContext);
 
     let editHandler = text => {
-        noteContext.dispatch({ type : 'edit_note' , payload : { key : item.key , text }})
+        axios.put(`https://note-taking-c97bb-default-rtdb.europe-west1.firebasedatabase.app/notes/${item.key}.json`, { ...item , text })
+            .then( response => {
+                noteContext.dispatch({ type : 'edit_note' , payload : { key : item.key , text }})
+            })
+            .catch( err => console.log(err) )
         setEdit(false);
     }
     let deleteHandler = e => {
