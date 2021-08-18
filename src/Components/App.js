@@ -1,5 +1,6 @@
 import React , { useReducer , useEffect } from 'react';
 import './App.css';
+import noteApi from '../Api/Notes'
 
 
 // Import Components
@@ -23,7 +24,7 @@ function App() {
     })
 
     useEffect(() => {
-        axios.get(`/notes.json`)
+        noteApi.get(`/notes.json`)
             .then(response => jsonHandler(response.data))
             .catch(err => console.log(err));
     },[])

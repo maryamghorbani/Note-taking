@@ -3,6 +3,7 @@ import './CSS/Note.css';
 import EditNote from "./EditNote";
 import NotesContext from "../../Context/Notes";
 import axios from "axios";
+import noteApi from '../../Api/Notes'
 
 
 function Note(props) {
@@ -13,7 +14,7 @@ function Note(props) {
     const noteContext = useContext(NotesContext);
 
     let editHandler = text => {
-        axios.put(`/notes/${item.key}.json`, { text })
+        noteApi.put(`/notes/${item.key}.json`, { text })
             .then( response => {
                 noteContext.dispatch({ type : 'edit_note' , payload : { key : item.key , text }})
             })
@@ -22,7 +23,7 @@ function Note(props) {
     }
     let deleteHandler = e => {
         // ajax
-        axios.delete(`/notes/${item.key}.json`)
+        noteApi.delete(`/notes/${item.key}.json`)
             .then( response => {
                 noteContext.dispatch({ type : 'delete_note' , payload : { key : item.key}})
             })

@@ -3,6 +3,7 @@ import './CSS/FormAddNote.css'
 import NotesContext from "../../Context/Notes";
 import AuthContext from '../../Context/auth';
 import axios from 'axios';
+import noteApi from '../../Api/Notes'
 
 class FormAddNote extends React.Component {
     state = { text : '' }
@@ -13,7 +14,7 @@ class FormAddNote extends React.Component {
         // ajax
         if ( this.state.text.length > 1 ) {
             let note = { text : this.state.text };
-            axios.post(`/notes.json` , note)
+            noteApi.post(`/notes.json` , note)
                 .then(response => this.context.dispatch({ type : 'add_note' , payload : { note : { ...note , key : response.data.name } } }))
                 .catch(err => console.log(err))
             //
