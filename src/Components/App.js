@@ -1,71 +1,56 @@
-import React , { Component } from 'react';
+import React , { useReducer , useEffect } from 'react';
 import './App.css';
 
 
 // Import Components
-import Header from './Layout/Header';
+import Header from './Layouts/Header';
 import FormAddNote from './Note/FormAddNote';
-import NoteList from "./Note/NoteList";
-
-
+import NoteList from './Note/NoteList';
 
 // Import Contexts
 import NotesContext from "../Context/Notes";
+import AuthContext from '../Context/auth';
 
+// Import Reducers
+import AppReducer from './../Reducers/appReducer';
+import axios from 'axios';
 
+function App() {
 
+    const [state , dispatch] = useReducer(AppReducer , {
+        notes : [],
+        authenticated : false
+    })
 
-class App extends Component {
+    useEffect(() => {
+        axios.get(`https://react-course-d7c8c.firebaseio.com/notes.json`)
+            .then(response => jsonHandler(response.data))
+            .catch(err => console.log(err));
+    },[])
 
-    state = {
-        notes : []
+    let jsonHandler = (data) => {
+        let notes =  Object
+            .entries(data)
+            .map(([key , value]) => {
+                return {
+                    ...value,
+                    key
+                }
+            });
+
+        dispatch({ type : 'init_todo' , payload : { notes }})
     }
 
 
-    addNote(text) {
-        this.setState(prevState => {
-            return {
-                notes : [
-                    ... prevState.notes,
-                    { key : Date.now() , done : false , text }
-                ]
-            }
-        })
-    }
 
-    deleteNote(key) {
-        this.setState(prevState => {
-            return {
-                notes : prevState.notes.filter( item => item.key !== key )
-            }
-        })
-    }
-    editNote(key , text) {
-        let { notes } = this.state;
-        let item = notes.find(item => item.key === key);
-        item.text = text;
-
-        let newNote = notes.filter(item => item.key !== key)
-
-
-        this.setState({
-            notes : [
-                ... newNote,
-                item
-            ]
-        })
-    }
-
-    render() {
-
-        let {notes} = this.state;
-
-        return (
+    return (
+        <AuthContext.Provider value={{
+            authenticated : state.authenticated,
+            dispatch
+        }}>
             <NotesContext.Provider value={{
-                notes: this.state.notes,
-                add: this.addNote.bind(this),
-                edit: this.editNote.bind(this),
-                delete: this.deleteNote.bind(this)
+                notes: state.notes,
+                dispatch
             }}>
                 <div className="App">
                     <Header />
@@ -79,7 +64,8 @@ class App extends Component {
                     </main>
                 </div>
             </NotesContext.Provider>
+        </AuthContext.Provider>
     )
-    }
-    }
-    export default App;
+}
+
+export default App;
