@@ -1,5 +1,5 @@
 import React from 'react'
-import './CSS/FormAddTodo.css'
+import './CSS/FormAddNote.css'
 import NotesContext from "../../Context/Notes";
 import AuthContext from '../../Context/auth';
 import axios from 'axios';
