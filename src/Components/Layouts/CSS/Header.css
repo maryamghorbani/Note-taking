@@ -5,3 +5,10 @@
 .login-btn , .logout-btn {
     float: right;
 }
+.navbar {
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 10%;
+    margin: 0;
+}

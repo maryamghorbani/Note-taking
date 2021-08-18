@@ -16,6 +16,10 @@ function Header() {
                 <a href="#" className="">
                     <strong>TODO APP</strong>
                 </a>
+                <ul className="navbar">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
                     {
                         ! authContext.authenticated
                             ? <button className="login-btn" onClick={doLogin}>login</button>
