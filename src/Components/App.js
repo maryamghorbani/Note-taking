@@ -37,7 +37,7 @@ function App() {
                 }}>
                     <div className="App">
                         <Header />
-                        <Route path="/">
+                        <Route path="/" exact>
                             <Home />
                         </Route>
                         <Route path="/about" component={About} />
