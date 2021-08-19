@@ -37,9 +37,7 @@ function App() {
                 }}>
                     <div className="App">
                         <Header />
-                        <Route path="/" exact>
-                            <Home />
-                        </Route>
+                        <Route path="/" exact component={Home} />
                         <Route path="/about" component={About} />
                     </div>
                 </NotesContext.Provider>
