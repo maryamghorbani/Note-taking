@@ -14,6 +14,7 @@ import AppReducer from './../Reducers/appReducer';
 
 // Import Routes
 import Home from "../Routes/Home";
+import About from "../Routes/About";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
                         <Route path="/">
                             <Home />
                         </Route>
+                        <Route path="/about" component={About} />
                     </div>
                 </NotesContext.Provider>
             </AuthContext.Provider>
