@@ -27,7 +27,7 @@ function Home() {
                 }
             });
 
-        NoteContext.dispatch({ type : 'init_note' , payload : { notes }})
+        noteContext.dispatch({ type : 'init_note' , payload : { notes }})
     }
 
 
