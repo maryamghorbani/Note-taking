@@ -2,8 +2,7 @@ import React from 'react'
 import './CSS/FormAddNote.css'
 import NotesContext from "../../Context/Notes";
 import AuthContext from '../../Context/auth';
-import axios from 'axios';
-import noteApi from '../../Api/Notes'
+import noteApi from './../../Api/Notes'
 
 class FormAddNote extends React.Component {
     state = { text : '' }

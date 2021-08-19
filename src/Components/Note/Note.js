@@ -2,8 +2,7 @@ import React, { useState , useContext } from 'react';
 import './CSS/Note.css';
 import EditNote from "./EditNote";
 import NotesContext from "../../Context/Notes";
-import axios from "axios";
-import noteApi from '../../Api/Notes'
+import noteApi from './../../Api/Notes'
 
 
 function Note(props) {
