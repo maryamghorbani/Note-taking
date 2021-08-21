@@ -1,5 +1,5 @@
 import React , { useReducer } from 'react';
-import { BrowserRouter as Router , Route } from 'react-router-dom';
+import { BrowserRouter as Router , Route , Switch } from 'react-router-dom';
 import './App.css';
 
 // Import Components
@@ -15,6 +15,7 @@ import AppReducer from './../Reducers/appReducer';
 // Import Routes
 import Home from "../Routes/Home";
 import About from "../Routes/About";
+import NotFound from "../Routes/NotFound";
 
 function App() {
 
@@ -37,8 +38,11 @@ function App() {
                 }}>
                     <div className="App">
                         <Header />
-                        <Route path="/" exact component={Home} />
-                        <Route path="/about" component={About} />
+                        <Switch>
+                            <Route path="/" exact component={Home} />
+                            <Route path="/about" component={About} />
+                            <Route component={NotFound} />
+                        </Switch>
                     </div>
                 </NotesContext.Provider>
             </AuthContext.Provider>
