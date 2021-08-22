@@ -21,7 +21,7 @@ This installs the required dependencies
 
 ### `$ npm start`
 
-\
+
 \
 # You are done! 
 
