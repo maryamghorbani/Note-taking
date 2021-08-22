@@ -22,7 +22,7 @@ This installs the required dependencies
 ### `$ npm start`
 
 
-\
+
 # You are done! 
 
 ** You can add, edit and delete a note.\
